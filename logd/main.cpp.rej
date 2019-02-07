@@ -1,0 +1,15 @@
+--- logd/main.cpp
++++ logd/main.cpp
+@@ -477,12 +483,6 @@ int main(int argc, char* argv[]) {
+         pthread_attr_destroy(&attr);
+     }
+ 
+-    bool auditd =
+-        __android_logger_property_get_bool("ro.logd.auditd", BOOL_DEFAULT_TRUE);
+-    if (drop_privs(klogd, auditd) != 0) {
+-        return -1;
+-    }
+-
+     // Serves the purpose of managing the last logs times read on a
+     // socket connection, and as a reader lock on a range of log
+     // entries.
